@@ -32,7 +32,6 @@ export default function LoginPage() {
         <p className="login-foot">Authentication proves who you are. The database flag decides what you may see.</p>
       </section>
       <aside className="login-aside" aria-hidden="true">
-        <div className="borough-lines"><i /><i /><i /><i /><i /></div>
         <span>40.7128° N</span><span>74.0060° W</span>
         <strong>CONTROL<br />ROOM</strong>
       </aside>
