@@ -174,7 +174,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .borough-lines i:nth-child(5) { top: 82%; transform: rotate(5deg); background: var(--asphalt); }
 .center-state { min-height: 100vh; display: grid; align-content: center; justify-items: start; padding: clamp(36px, 10vw, 140px); }
 .center-state > p:not(.kicker) { max-width: 60ch; color: var(--secondary); }
-.text-link { margin-top: 24px; color: var(--asphalt); font-size: 10px; font-weight: 600; letter-spacing: .14em; text-decoration: underline; text-underline-offset: 5px; text-transform: uppercase; }
+.text-link { width: fit-content; margin-top: 24px; padding: 0; border: 0; color: var(--asphalt); background: transparent; cursor: pointer; font-size: 10px; font-weight: 600; letter-spacing: .14em; text-decoration: underline; text-underline-offset: 5px; text-transform: uppercase; }
+.text-link:disabled { cursor: wait; opacity: .55; }
+.auth-error { margin: 14px 0 0; color: var(--secondary); font-size: 11px; }
 
 @keyframes pulse { 50% { opacity: .35; } }
 @keyframes fade { from { opacity: 0; } }
