@@ -17,6 +17,8 @@ export default async function DashboardPage() {
   const signals = (votes ?? []) as Vote[];
   const up = signals.filter(v => v.value > 0).length;
   const approval = signals.length ? Math.round((up / signals.length) * 100) : 0;
+  const creatorCount = new Set(media.map(m => m.creator_id)).size;
+  const superadminCount = people.filter(p => p.is_superadmin).length;
   const neighborhoods = Object.entries(media.reduce<Record<string, number>>((acc, item) => {
     acc[item.neighborhood] = (acc[item.neighborhood] ?? 0) + 1; return acc;
   }, {})).sort((a, b) => b[1] - a[1]);
@@ -29,10 +31,10 @@ export default async function DashboardPage() {
   return <>
     <PageHeader eyebrow="LIVE / DATABASE OVERVIEW" title="City pulse" copy="What the generator made, who showed up, and what the crowd endorsed." action={<div className="live-pill"><Radio size={14} /> Database live</div>} />
     <section className="metric-strip">
-      <article className="metric-primary"><span>GENERATIONS ON RECORD</span><strong>{media.length.toString().padStart(2, "0")}</strong><small>{new Set(media.map(m => m.creator_id)).size} contributing creators</small></article>
-      <article><span>COMMUNITY SIGNALS</span><strong>{signals.length}</strong><small>{up} up / {signals.length - up} down</small></article>
-      <article><span>APPROVAL PULSE</span><strong>{approval}%</strong><div className="approval-rule"><i style={{ width: `${approval}%` }} /></div></article>
-      <article><span>PROFILES</span><strong>{people.length}</strong><small>{people.filter(p => p.is_superadmin).length} on the admin desk</small></article>
+      <article className="metric-primary"><span>TOTAL AI MEDIA</span><strong>{media.length.toString().padStart(2, "0")}</strong><small>{creatorCount} creator{creatorCount === 1 ? "" : "s"}</small></article>
+      <article><span>TOTAL VOTES</span><strong>{signals.length}</strong><small>{up} upvotes / {signals.length - up} downvotes</small></article>
+      <article><span>UPVOTE RATE</span><strong>{approval}%</strong><div className="approval-rule"><i style={{ width: `${approval}%` }} /></div></article>
+      <article><span>TOTAL PROFILES</span><strong>{people.length}</strong><small>{superadminCount} superadmin{superadminCount === 1 ? "" : "s"}</small></article>
     </section>
     <section className="dashboard-grid">
       <article className="panel activity-panel">
