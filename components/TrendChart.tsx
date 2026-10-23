@@ -13,7 +13,7 @@ export function TrendChart({ values }: { values: number[] }) {
     {safe.map((value, index) => {
       const x = safe.length === 1 ? 50 : (index / (safe.length - 1)) * 100;
       const y = 92 - (value / max) * 76;
-      return <circle cx={x} cy={y} r="1.8" key={`${index}-${value}`} />;
+      return <line className="trend-dot" x1={x} x2={x + 0.001} y1={y} y2={y} key={`${index}-${value}`} />;
     })}
   </svg>;
 }
