@@ -38,24 +38,24 @@ export default async function DashboardPage() {
     </section>
     <section className="dashboard-grid">
       <article className="panel activity-panel">
-        <div className="panel-head"><div><span>01 / WEEKLY ACTIVITY</span><h2>Seven-day output</h2></div><strong>{days.reduce((a,b) => a+b, 0)}</strong></div>
+        <div className="panel-head"><h2>Weekly activity</h2><strong>{days.reduce((a,b) => a+b, 0)}</strong></div>
         <TrendChart values={days} />
         <div className="chart-labels"><span>−6 DAYS</span><span>TODAY</span></div>
       </article>
       <article className="panel neighborhood-panel">
-        <div className="panel-head"><div><span>02 / LOCATIONS</span><h2>Neighborhood heat</h2></div><Link href="/media">Open index <ArrowUpRight size={14} /></Link></div>
+        <div className="panel-head"><h2>Locations</h2><Link href="/media">Open index <ArrowUpRight size={14} /></Link></div>
         <div className="neighborhood-list">
           {neighborhoods.slice(0, 5).map(([name, count], index) => <div key={name}><b>0{index + 1}</b><span>{name}</span><i style={{ width: `${Math.max(14, (count / (neighborhoods[0]?.[1] || 1)) * 100)}%` }} /><strong>{count}</strong></div>)}
         </div>
       </article>
       <article className="panel recent-panel">
-        <div className="panel-head"><div><span>03 / RECENT MEDIA</span><h2>Fresh from the model</h2></div></div>
+        <div className="panel-head"><h2>Recent media</h2></div>
         <div className="recent-list">
           {media.slice(0, 4).map((item, index) => <Link href={`/media?edit=${item.id}`} key={item.id}><b>{String(index + 1).padStart(2,"0")}</b><div><strong>{item.title}</strong><span>{item.collaboration} · {item.neighborhood}</span></div><ArrowUpRight size={16} /></Link>)}
         </div>
       </article>
       <article className="panel model-panel">
-        <div className="panel-head"><div><span>04 / AI MODELS</span><h2>Generation stack</h2></div></div>
+        <div className="panel-head"><h2>AI models</h2></div>
         {[...new Set(media.map(m => m.model))].map(model => {
           const count = media.filter(m => m.model === model).length;
           return <div className="model-row" key={model}><span>{model}</span><i><b style={{ width: `${(count / Math.max(media.length,1))*100}%` }} /></i><strong>{count}</strong></div>;

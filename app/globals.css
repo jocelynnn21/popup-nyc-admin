@@ -61,8 +61,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .panel { min-width: 0; background: var(--paper); }
 .dashboard-grid .panel { min-height: 370px; padding: 30px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .panel-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
-.panel-head span { color: var(--secondary); font-size: 9px; font-weight: 600; letter-spacing: .16em; }
-.panel-head h2 { margin: 9px 0 0; font-size: 28px; font-weight: 400; letter-spacing: -.025em; }
+.panel-head h2 { margin: 0; font-size: 28px; font-weight: 400; letter-spacing: -.025em; }
 .panel-head > strong { font-size: 48px; font-weight: 400; font-variant-numeric: tabular-nums; }
 .panel-head a { display: inline-flex; gap: 6px; align-items: center; color: var(--secondary); font-size: 9px; font-weight: 600; letter-spacing: .12em; text-decoration: none; text-transform: uppercase; }
 .panel-head a:hover { color: var(--asphalt); text-decoration: underline; text-underline-offset: 5px; }
