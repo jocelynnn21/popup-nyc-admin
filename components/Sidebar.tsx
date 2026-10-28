@@ -5,9 +5,11 @@ import { usePathname, useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
 const links = [
-  { href: "/", label: "City pulse" },
-  { href: "/media", label: "AI media" },
-  { href: "/people", label: "People" },
+  { href: "/", label: "Overview" },
+  { href: "/generation", label: "Generation" },
+  { href: "/prompts", label: "Prompts" },
+  { href: "/models", label: "Models" },
+  { href: "/access", label: "Access" },
   { href: "/ratings", label: "Ratings" },
 ];
 
